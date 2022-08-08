@@ -23,7 +23,7 @@ const Profile = () => {
     return ( 
     <div>
         {info && info.username ? <h2>Hello {info.username}!</h2> : null}
-        <h3>Wlcom to your routines!</h3>
+        <h3>Welcome to your routines!</h3>
     </div>
      );
 }
