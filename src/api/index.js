@@ -123,7 +123,9 @@ const postActivities = async (name, description) => {
     });
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 };
 
 const updateActivities = async (activityId, name, description) => {
@@ -167,7 +169,9 @@ const postRoutines = async (name, goal, isPublic) => {
     });
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    throw error
+  }
 };
 
 const updateRoutines = async (routineId, name, goal, isPublic) => {
