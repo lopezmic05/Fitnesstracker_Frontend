@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import {
    Navbar,
    Profile,
+   Home,
    Activities,
    Register,
    Routines,
@@ -34,7 +35,7 @@ const App = () => {
           <Routes>
             <Route
               path='/'
-              element={<h1>Welcome To FitnessTracker!</h1>}
+              element={<Home />}
             ></Route>
             <Route
               path='/login'
