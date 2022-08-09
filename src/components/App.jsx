@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
-   Navbar,
-   Profile,
-   Home,
-   Activities,
-   Register,
-   Routines,
-   Login
-   } from "./";
-
+  Navbar,
+  Profile,
+  Home,
+  Activities,
+  Register,
+  Routines,
+  Login,
+} from "./";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,10 +32,7 @@ const App = () => {
       <div>
         {isLoggedIn ? (
           <Routes>
-            <Route
-              path='/'
-              element={<Home />}
-            ></Route>
+            <Route path='/' element={<Home />}></Route>
             <Route
               path='/login'
               element={
@@ -76,4 +72,4 @@ const App = () => {
   );
 };
 
-export default App
+export default App;

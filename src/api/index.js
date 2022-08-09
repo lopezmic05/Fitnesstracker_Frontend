@@ -2,8 +2,8 @@ const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/api/";
 
 const registerUser = async (event) => {
   try {
-    const registerUsername = event.target[0].value
-    const registerPassword = event.target[1].value
+    const registerUsername = event.target[0].value;
+    const registerPassword = event.target[1].value;
     console.log(`${BASE_URL}users/register`);
     const response = await fetch(`${BASE_URL}users/register`, {
       method: "POST",
@@ -123,7 +123,9 @@ const postActivities = async (name, description) => {
     });
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 };
 
 const updateActivities = async (activityId, name, description) => {
@@ -167,7 +169,9 @@ const postRoutines = async (name, goal, isPublic) => {
     });
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 };
 
 const updateRoutines = async (routineId, name, goal, isPublic) => {
