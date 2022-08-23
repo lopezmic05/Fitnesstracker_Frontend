@@ -19,7 +19,7 @@ const Register = () => {
           <form onSubmit={handleSubmit} id= 'register-form'>
             <h3 id="register-header"> Sign up for an account.</h3>
             <label>Username</label>
-            <input type='text' id='username' required placeholder='create username...'></input>
+            <input type='text'maxLength={6} id='username' required placeholder='create username...'></input>
             <label>Password</label>
             <input type='password' id='password' required placeholder='create password...'></input>
             <button type='submit'>Submit</button>

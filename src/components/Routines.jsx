@@ -20,34 +20,42 @@ const Routines = () => {
     getRoutinesInfo();
   }, []);
 
-  const mapRoutines = routines.map((routine) => {
-    return (
-      <div>
-        <h3>Name: {routine.name}</h3>
-        <h3>Goal: {routine.goal}</h3>
-        <h3>Creator: {routine.creatorName}</h3>
-        <br />
-      </div>
-    );
-  });
-  return (
+  return(
     <div>
-      <h2>Welcome to Routines!!</h2>
-      {/* Form is static, unable to get it to function */}
-      <form>
-        <label>Routine Name</label>
-        <input type='text' id='routine' placeholder='enter here...'></input>
-        <label id='routine-goal'>Routine Goal</label>
-        <input
-          type='text'
-          id='routine stuff'
-          placeholder='enter here...'
-        ></input>
-        <button type='submit'>Submit</button>
-      </form>
-      {routines && routines.length ? <p>{mapRoutines}</p> : null}
+      <h2>Welcome to Routines</h2>
+
+      <div>
+        {routines.length ? (
+          routines.map((element) => {
+            const { id, name, isPublic, goal, creatorName, activities} = element;
+            if(isPublic){
+              return(
+                <div>
+                  <h3>{name}</h3>
+                  <p>Goal: {goal}</p>
+                  <p>CreatorName: {creatorName}</p>
+
+                  <div>
+                  {activities.map(({id, name, description, count, duration}) => {
+                    return(
+                      <div>
+                        <h3> Activity: {name}</h3>
+                        <p>Description: {description}</p>
+                        <p>Count: {count}</p>
+                        <p>Duration: {duration}</p>
+                      </div>
+                    )
+                  }
+                  )}
+                   </div>
+                </div>
+              )
+            }
+          })
+        ): null}
+      </div>
     </div>
-  );
+  )
 };
 
 export default Routines;

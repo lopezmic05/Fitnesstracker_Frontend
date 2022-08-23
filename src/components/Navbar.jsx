@@ -14,14 +14,11 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, setUsername, setPassword }) => {
   return (
     <div id='header'>
       <h1>
-        <Link id='links' to='/'>
           FitnessTracker
-        </Link>
       </h1>
       {isLoggedIn ? (
         <>
           <nav id='links'>
-            <Link to='/'>Home</Link> | {""}
             <Link to='profile'>My Routines</Link> | {""}
             <Link to='routines'>Routines</Link> | {""}
             <Link to='activities'>Activities</Link> | {""}
@@ -33,6 +30,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, setUsername, setPassword }) => {
       ) : (
         <>
           <nav id='links'>
+          <Link to='/'>Home</Link> | {""}
+            <Link to='routines'>Routines</Link> | {""}
+            <Link to='activities'>Activities</Link> | {""}
             <Link to='Login'>Login</Link> | {""}
             <Link to='register'>Register</Link>
           </nav>
