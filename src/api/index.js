@@ -35,13 +35,11 @@ const loginUser = async (username, password) => {
       }),
     });
     const result = await response.json();
-    console.log(result, "result");
     if (result.error) {
       throw result.error;
     }
     return result;
   } catch (error) {
-    console.log("I AM ERROR");
     throw error;
   }
 };
@@ -75,7 +73,6 @@ const getUserRoutine = async (username) => {
     const result = await response.json();
     return result;
   } catch (error) {
-    console.log("I AM GETUSERROUTINE ERROR");
     throw error;
   }
 };

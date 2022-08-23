@@ -31,7 +31,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
           setIsLoggedIn(true)
           
         } catch (error) {
-          console.error(message)
+          console.error(error)
         }
 
     }
@@ -46,14 +46,16 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         id='username'
         onChange={handleOnChange}
          placeholder='enter username...'
-         value={username}></input>
+         value={username}
+         required></input>
         <label id="password">Password</label>
         <input 
         type='password'
         id='password'
         onChange={handleOnChange}
          placeholder='enter password...'
-         value={password}></input>
+         value={password}
+         required></input>
         <button type='submit'>Submit</button>
       </form>
     </div>
