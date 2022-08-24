@@ -1,0 +1,27 @@
+#routine-btn{
+    box-shadow: 0px 10px 14px -7px #717371;
+	background:linear-gradient(to bottom, #adadad 5%, #808080 100%);
+	background-color:#adadad;
+	border-radius:4px;
+	border:1px solid #a2a89f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 11px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d4d4d;
+
+}
+
+#routine-btn:hover {
+	background:linear-gradient(to bottom, #808080 5%, #adadad 100%);
+	background-color:#808080;
+}
+
+#routine-btn:active {
+	position:relative;
+	top:1px;
+}

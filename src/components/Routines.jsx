@@ -22,7 +22,7 @@ const Routines = () => {
 
   return(
     <div>
-      <h2>Welcome to Routines</h2>
+      <h2>Routines</h2>
 
       <div>
         {routines.length ? (
@@ -52,7 +52,7 @@ const Routines = () => {
               )
             }
           })
-        ): null}
+        ):null}
       </div>
     </div>
   )

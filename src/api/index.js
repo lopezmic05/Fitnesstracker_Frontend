@@ -151,6 +151,7 @@ const getRoutineActivities = async (activityId) => {
 };
 
 const postRoutines = async (name, goal, isPublic) => {
+  const token = localStorage.getItem('token')
   try {
     const response = await fetch(`${BASE_URL}/routines`, {
       method: "POST",

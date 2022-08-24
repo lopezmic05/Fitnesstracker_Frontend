@@ -20,20 +20,20 @@ const Activities = () => {
     getActivitiesInfo();
   }, []);
 
-  const mapActivities = allActivities.map((activity) => {
+  console.log(allActivities, "This is allactivites")
+  const mapActivities = allActivities.map((activity, index) => {
     return (
       <div>
-        <h3 id='creator'>{activity.creatorName}</h3>
-        <h3 id='activity-name'>{activity.name}</h3>
-        <h3 id='activity-desc'>{activity.description}</h3>
-        <h3 id='activity-dur'>{activity.duration}</h3>
+        <h3>Activity: {index + 1}</h3>
+        <p id='activity-name'>Name:{activity.name}</p>
+        <p id='activity-desc'>Description: {activity.description}</p>
         <br />
       </div>
     );
   });
   return (
     <div id='activity-container'>
-      <h2 id='activity-heading'>Welcome To Activities!!</h2>
+      <h2 id='activity-heading'>Activities!!</h2>
 
       {/* Form is static, unable to get it to function */}
       <form id='activity-form'>

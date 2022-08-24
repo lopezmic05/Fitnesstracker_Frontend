@@ -20,7 +20,7 @@ const App = () => {
       setIsLoggedIn(true);
     }
   }, []);
-
+  
   return (
     <div>
       <Navbar

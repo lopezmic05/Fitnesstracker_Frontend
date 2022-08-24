@@ -31,7 +31,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
           setIsLoggedIn(true)
           
         } catch (error) {
-          console.error(error)
+          alert(error)
         }
 
     }
