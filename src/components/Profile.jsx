@@ -54,7 +54,7 @@ const Profile = () => {
               <div id="myroutine" key={`profile:${routine.id} ${index}`}>
                 <p>Routine: {routine.name}</p>
                 <p>Goal: {routine.goal}</p>
-                <DeleteRoutine  routineId={routine.id}/>
+                <DeleteRoutine  routineId={routine.id} setMyRoutines={setMyRoutines}/>
               </div>
             );
           })

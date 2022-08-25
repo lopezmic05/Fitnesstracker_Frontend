@@ -1,10 +1,17 @@
 import React from "react";
-import { deleteRoutine } from "../api";
+import { getRoutines, deleteRoutine } from "../api";
 
-const DeleteRoutine = () => {
+const DeleteRoutine = ({setMyRoutines}) => {
+    async function handleDelete(event) {
+        event.preventDefault();
+        await deleteRoutine(routineId);
+        const result = await getRoutines();
+        console.log(result, "this should delete")
+        setMyRoutines(result);
+      }
     return ( 
         <div>
-            <button type="submit"> delete routine </button>
+            <button id='delete-btn' onClick={handleDelete} type="submit"> delete routine </button>
         </div>
      );
 }
