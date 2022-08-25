@@ -1,0 +1,15 @@
+#routine-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+}
+
+#routine-head{
+    font-size: 64px;
+}
+
+#routine-name{
+    margin:10px 10px;
+}

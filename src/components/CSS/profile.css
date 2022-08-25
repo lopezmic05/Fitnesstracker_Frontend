@@ -1,0 +1,10 @@
+#main-ctr{
+    display: flex;
+    justify-content: center;
+    font-size: 64px;
+}
+
+
+#myroutine{
+    margin: 10px 10 \px;
+}

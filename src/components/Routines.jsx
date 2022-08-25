@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { getRoutines } from "../api";
 
+import './CSS/routines.css'
+
 const Routines = () => {
   const [routines, setRoutines] = useState([]);
 
@@ -21,8 +23,8 @@ const Routines = () => {
   }, []);
 
   return(
-    <div>
-      <h2>Routines</h2>
+    <div id="routine-container">
+      <h2 id="routine-head">Routines</h2>
 
       <div>
         {routines.length ? (
@@ -33,13 +35,13 @@ const Routines = () => {
                 <div>
                   <h3>{name}</h3>
                   <p>Goal: {goal}</p>
-                  <p>CreatorName: {creatorName}</p>
+                  <p>Name: {creatorName}</p>
 
                   <div>
                   {activities.map(({id, name, description, count, duration}) => {
                     return(
                       <div>
-                        <h3> Activity: {name}</h3>
+                        <h3 id="routine-name"> Activity: {name}</h3>
                         <p>Description: {description}</p>
                         <p>Count: {count}</p>
                         <p>Duration: {duration}</p>

@@ -106,8 +106,9 @@ const getActivities = async () => {
 };
 
 const postActivities = async (name, description) => {
+  const token = localStorage.getItem('token')
   try {
-    const response = await fetch(`${BASE_URL}activites`, {
+    const response = await fetch(`${BASE_URL}activities`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -150,7 +151,7 @@ const getRoutineActivities = async (activityId) => {
   return result;
 };
 
-const postRoutines = async (name, goal, isPublic) => {
+const postRoutines = async (name, goal, isPublic,) => {
   const token = localStorage.getItem('token')
   try {
     const response = await fetch(`${BASE_URL}/routines`, {
