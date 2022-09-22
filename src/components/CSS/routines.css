@@ -1,15 +1,23 @@
 #routine-container{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    padding: 30px;
+    padding: 50px;
     gap: 20px;
+    background-image: url("./karsten-winegeart-eGSBVVtVCCw-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: 1425px 1100px;
 }
 
 #routine-head{
     font-size: 64px;
+    background-color: aqua;
+    margin: 30px;
 }
 
 #routine-name{
     margin:10px 10px;
+    background-color: burlywood;
+    
 }

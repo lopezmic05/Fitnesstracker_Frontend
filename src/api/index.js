@@ -1,6 +1,6 @@
 const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/api/";
 
-const registerUser = async (event) => {
+export const registerUser = async (event) => {
   try {
     const registerUsername = event.target[0].value;
     const registerPassword = event.target[1].value;
@@ -22,7 +22,7 @@ const registerUser = async (event) => {
   }
 };
 
-const loginUser = async (username, password) => {
+export const loginUser = async (username, password) => {
   try {
     const response = await fetch(`${BASE_URL}users/login`, {
       method: "POST",
@@ -44,7 +44,7 @@ const loginUser = async (username, password) => {
   }
 };
 
-const getUser = async () => {
+export const getUser = async () => {
   try {
     const token = localStorage.getItem("token");
     const response = await fetch(`${BASE_URL}users/me`, {
@@ -60,7 +60,7 @@ const getUser = async () => {
   }
 };
 
-const getUserRoutine = async (username) => {
+export const getUserRoutine = async (username) => {
   const token = localStorage.getItem("token");
   try {
     const response = await fetch(`${BASE_URL}users/${username}/routines`, {
@@ -77,7 +77,7 @@ const getUserRoutine = async (username) => {
   }
 };
 
-const getRoutines = async () => {
+export const getRoutines = async () => {
   try {
     const response = await fetch(`${BASE_URL}routines`, {
       headers: {
@@ -91,7 +91,7 @@ const getRoutines = async () => {
   }
 };
 
-const getActivities = async () => {
+export const getActivities = async () => {
   try {
     const response = await fetch(`${BASE_URL}activities`, {
       headers: {
@@ -105,7 +105,7 @@ const getActivities = async () => {
   }
 };
 
-const postActivities = async (name, description) => {
+export const postActivities = async (name, description) => {
   const token = localStorage.getItem('token')
   try {
     const response = await fetch(`${BASE_URL}activities`, {
@@ -126,7 +126,7 @@ const postActivities = async (name, description) => {
   }
 };
 
-const updateActivities = async (activityId, name, description) => {
+export const updateActivities = async (activityId, name, description) => {
   const response = await fetch(`${BASE_URL}/activities/${activityId}`, {
     method: "PATCH",
     headers: {
@@ -141,7 +141,7 @@ const updateActivities = async (activityId, name, description) => {
   return result;
 };
 
-const getRoutineActivities = async (activityId) => {
+export const getRoutineActivities = async (activityId) => {
   const response = await fetch(`${BASE_URL}activities/${activityId}/routines`, {
     headers: {
       "Content-Type": "application/json",
@@ -151,7 +151,7 @@ const getRoutineActivities = async (activityId) => {
   return result;
 };
 
-const postRoutines = async (name, goal, isPublic,) => {
+export const postRoutines = async (name, goal, isPublic,) => {
   const token = localStorage.getItem('token')
   try {
     const response = await fetch(`${BASE_URL}/routines`, {
@@ -173,7 +173,7 @@ const postRoutines = async (name, goal, isPublic,) => {
   }
 };
 
-const updateRoutines = async (routineId, name, goal, isPublic) => {
+export const updateRoutines = async (routineId, name, goal, isPublic) => {
   const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
     method: "PATCH",
     headers: {
@@ -189,9 +189,8 @@ const updateRoutines = async (routineId, name, goal, isPublic) => {
   return result;
 };
 
-const deleteRoutine = async (id) => {
-  const token = localStorage.getItem("token");
-  const response = await fetch(`${BASE_URL}routines/${id}`, {
+export const deleteRoutine = async (token, routineId) => {
+  const response = await fetch(`${BASE_URL}routines/${routineId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -199,10 +198,11 @@ const deleteRoutine = async (id) => {
     },
   });
   const result = await response.json();
+  console.log(result, "delete api call")
   return result;
 };
 
-const attachActivity = async (activityId, count, duration, routineId) => {
+export const attachActivity = async (activityId, count, duration, routineId) => {
   const response = await fetch(`${BASE_URL}routines/${routineId}/activities`, {
     method: "POST",
     header: {
@@ -218,7 +218,7 @@ const attachActivity = async (activityId, count, duration, routineId) => {
   return result;
 };
 
-const updateRoutineActivity = async (routineActivityId, count, duration) => {
+export const updateRoutineActivity = async (routineActivityId, count, duration) => {
   const token = localStorage.getItem("token");
 
   const response = await fetch(
@@ -239,7 +239,7 @@ const updateRoutineActivity = async (routineActivityId, count, duration) => {
   return result;
 };
 
-const deleteRoutineActivity = async (routineActivityId) => {
+export const deleteRoutineActivity = async (routineActivityId) => {
   const token = localStorage.getItem("token");
   const response = await fetch(
     `${BASE_URL}routine_activities/${routineActivityId}`,
@@ -253,22 +253,4 @@ const deleteRoutineActivity = async (routineActivityId) => {
   );
   const result = await response.json();
   return result;
-};
-
-module.exports = {
-  registerUser,
-  loginUser,
-  getUser,
-  getUserRoutine,
-  getRoutines,
-  getActivities,
-  postActivities,
-  updateActivities,
-  getRoutineActivities,
-  postRoutines,
-  updateRoutines,
-  deleteRoutine,
-  attachActivity,
-  updateRoutineActivity,
-  deleteRoutineActivity,
 };

@@ -40,8 +40,8 @@ const Routines = () => {
                   <div>
                   {activities.map(({id, name, description, count, duration}) => {
                     return(
-                      <div>
-                        <h3 id="routine-name"> Activity: {name}</h3>
+                      <div id="routine-name">
+                        <h3> Activity: {name}</h3>
                         <p>Description: {description}</p>
                         <p>Count: {count}</p>
                         <p>Duration: {duration}</p>

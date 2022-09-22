@@ -1,17 +1,26 @@
 import React from "react";
 import { getRoutines, deleteRoutine } from "../api";
 
-const DeleteRoutine = ({setMyRoutines}) => {
-    async function handleDelete(event) {
-        event.preventDefault();
-        await deleteRoutine(routineId);
-        const result = await getRoutines();
-        console.log(result, "this should delete")
-        setMyRoutines(result);
+const DeleteRoutine = () => {
+
+
+    const handleDelete = async (event) => {
+        event.preventDefault()
+        const token = localStorage.getItem('token')
+        deleteRoutine(token, event.target.id)
+        
+        // event.preventDefault();
+        // await deleteRoutine(myRoutines);
+        // const result = await getRoutines();
+        // console.log(result, "this should delete")
+        // setMyRoutines(result);
       }
+
+   
+
     return ( 
         <div>
-            <button id='delete-btn' onClick={handleDelete} type="submit"> delete routine </button>
+            <button onClick={handleDelete} type="button"> delete </button>
         </div>
      );
 }
